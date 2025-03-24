@@ -103,4 +103,3 @@ class TestBooksCollector:
         result = collector.get_list_of_favorites_books()
         expected = ['Книга 1', 'Книга 2']
         assert result == expected
-
