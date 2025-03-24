@@ -2,6 +2,7 @@ import pytest
 
 from main import BooksCollector
 
+
 class TestBooksCollector:
 
     @pytest.mark.parametrize("book_name", ["Война и мир", "Мастер и Маргарита", "1984"])
@@ -10,6 +11,10 @@ class TestBooksCollector:
         assert book_name in collector.books_genre
         assert collector.books_genre[book_name] == ''
 
+    def test_add_new_books_with_empty_book_added(self, collector):
+        book_name = 'Книга про мальчика который выжил или как не допустить разлад в обществе волшебников'
+        collector.add_new_book(book_name)
+        assert book_name not in collector.books_genre
 
     def test_set_book_genre_the_genre_is_set(self, collector):
         collector.genre = ['Фантастика', 'Ужасы', 'Детективы', 'Мультфильмы', 'Комедии']
